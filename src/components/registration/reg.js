@@ -32,7 +32,8 @@ class Reg extends React.Component {
       surname: this.state.surname,
       gen: this.state.gen
     };
-    this.props.regUser(user).then(() => this.setState({ reg: true }));
+    this.props.regUser(user);
+    this.setState({ reg: true });
   };
 
   render() {
