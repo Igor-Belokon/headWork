@@ -10,7 +10,7 @@ import Users from "./users";
 class Table extends React.Component {
   render() {
     return (
-      <div>
+      <div className="table">
         {this.props.users.map(users => (
           <Users users={users}></Users>
         ))}

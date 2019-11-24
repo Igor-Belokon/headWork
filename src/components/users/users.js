@@ -4,11 +4,11 @@ import "../style.css";
 export default class Users extends React.Component {
   render() {
     return (
-      <div>
-        {this.props.users.username}
-        {this.props.users.surname}
-        {this.props.users.gen}
-        {this.props.users.loyal}
+      <div className="search">
+        <div className="header">{this.props.users.username}</div>
+        <div className="header"> {this.props.users.surname}</div>
+        <div className="header"> {this.props.users.gen}</div>
+        <div className="header">{this.props.users.loyal}</div>
       </div>
     );
   }

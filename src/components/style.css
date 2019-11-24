@@ -5,50 +5,17 @@
   justify-content: space-around;
   background-color: rgba(212, 212, 212, 0.466);
 }
-.find {
-  width: 300px;
-  height: 30px;
-  border: none;
-  outline: none;
-  margin: auto;
-  background-color: rgba(255, 255, 255, 0);
-}
+
 .header {
-  margin: auto;
+  width: 100px;
   padding-left: 10px;
   padding-right: 10px;
 }
-.header-text {
-  border-right: 1px rgba(146, 146, 146, 0.651) solid;
-}
-.header-text1 {
-  border-right: 1px rgba(146, 146, 146, 0.651) solid;
-  border-left: 1px rgba(146, 146, 146, 0.651) solid;
-}
-.message {
-  display: flex;
-  background-color: rgba(192, 192, 192, 0.74);
-  padding: 20px;
-  border-bottom: 1px rgba(146, 146, 146, 0.651) solid;
-}
-.price {
-  border-left: 1px rgba(146, 146, 146, 0.651) solid;
-  margin: 10px;
-  padding: 10px;
-}
+
 .search {
   display: flex;
 }
 
-.filter-found {
-  display: flex;
-  background-color: rgba(200, 201, 201, 0.678);
-  padding: 10px;
-}
-.head {
-  display: flex;
-  justify-content: space-between;
-}
 .filter {
   margin: 10px;
   padding: 10px;
@@ -91,4 +58,9 @@
 .reg2 {
   display: flex;
   flex-direction: column;
+}
+.table {
+  width: 100%;
+  border: 1px rgba(0, 0, 0, 0.61) solid;
+  border-radius: 10px;
 }

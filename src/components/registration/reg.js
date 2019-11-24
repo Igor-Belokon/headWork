@@ -85,8 +85,8 @@ class Reg extends React.Component {
             />
           </div>
           <button onClick={this.userReg}>Registration</button>
-          {this.props.sameData}
         </div>
+        {this.props.sameData}
       </div>
     );
   }
