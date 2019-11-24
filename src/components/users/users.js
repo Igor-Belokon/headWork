@@ -1,14 +1,15 @@
 import React from "react";
 import "../style.css";
 
-import { connect } from "react-redux";
-
-import { Redirect } from "react-router-dom";
-
-import { regUser } from "../../store/action/data";
-
-export default class MyProf extends React.Component {
+export default class Users extends React.Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        {this.props.users.username}
+        {this.props.users.surname}
+        {this.props.users.gen}
+        {this.props.users.loyal}
+      </div>
+    );
   }
 }

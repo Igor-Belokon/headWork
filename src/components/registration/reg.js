@@ -5,7 +5,9 @@ import { connect } from "react-redux";
 
 import { Redirect } from "react-router-dom";
 
-import { regUser } from "../../store/action/data";
+import { regUser, regForm } from "../../store/action/data";
+
+import { myData } from "../../store/selectors/selectors";
 
 class Reg extends React.Component {
   state = {
@@ -13,9 +15,11 @@ class Reg extends React.Component {
     surname: "",
     gen: "",
     loyal: "",
-    registered: false
+    reg: false
   };
-
+  componentDidMount() {
+    this.props.regForm();
+  }
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -28,16 +32,14 @@ class Reg extends React.Component {
       surname: this.state.surname,
       gen: this.state.gen
     };
-    this.props.regUser(user).then(() => this.setState({ registered: true }));
+    this.props.regUser(user).then(() => this.setState({ reg: true }));
   };
 
   render() {
-    const { registered } = this.state;
-
-    if (registered) {
-      return <Redirect to="/login" />;
+    const { reg } = this.state;
+    if (reg) {
+      return <Redirect to="/users" />;
     }
-
     return (
       <div className="reg1">
         <div className="reg-form">
@@ -82,10 +84,13 @@ class Reg extends React.Component {
             />
           </div>
           <button onClick={this.userReg}>Registration</button>
+          {this.props.sameData}
         </div>
       </div>
     );
   }
 }
-
-export default connect(null, { regUser })(Reg);
+function mapStateToProps(state) {
+  return { sameData: myData(state) };
+}
+export default connect(mapStateToProps, { regForm, regUser })(Reg);

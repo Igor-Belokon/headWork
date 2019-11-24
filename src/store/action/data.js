@@ -1,21 +1,15 @@
-import { USER_LOGIN, USER_REG, successAction, failureAction } from "../types";
+import { REG_FORM, USER_REG, successAction, failureAction } from "../types";
 
-import { tokenRead, instance } from "../../instance/instance";
+import axios from "axios";
 
 export function regUser(user) {
-  return dispatch =>
-    instance
-      .post("http://68.183.119.148/api/test/register", user)
-
-      .catch(err => dispatch({ type: failureAction(USER_REG), err }));
+  return dispatch => user =>
+    dispatch({ type: successAction(USER_REG), data: user });
 }
-export function editUser(user) {
+export function regForm() {
   return dispatch =>
-    instance
-      .post("http://68.183.119.148/api/test/edit-user", user) // Redux Thunk handles these
-
-      .then(data => {
-        tokenRead(data.token);
-      })
-      .catch(err => dispatch({ type: failureAction(USER_LOGIN), err }));
+    axios
+      .get("https://meowfacts.herokuapp.com/")
+      .then(data => dispatch({ type: successAction(REG_FORM), data }))
+      .catch(err => dispatch({ type: failureAction(REG_FORM), err }));
 }
