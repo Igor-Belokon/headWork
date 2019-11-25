@@ -3,8 +3,7 @@ import { REG_FORM, USER_REG, successAction, failureAction } from "../types";
 import axios from "axios";
 
 export function regUser(user) {
-  return dispatch => user =>
-    dispatch({ type: successAction(USER_REG), data: user });
+  return dispatch => dispatch({ type: successAction(USER_REG), user });
 }
 export function regForm() {
   return dispatch =>

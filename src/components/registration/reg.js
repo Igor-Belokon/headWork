@@ -33,7 +33,7 @@ class Reg extends React.Component {
       gen: this.state.gen
     };
     if (
-      user.loyal.length === 14 &&
+      user.loyal.length === 16 &&
       (user.gen === "male" || user.gen === "female")
     ) {
       this.props.regUser(user);
