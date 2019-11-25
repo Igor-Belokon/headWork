@@ -32,8 +32,15 @@ class Reg extends React.Component {
       surname: this.state.surname,
       gen: this.state.gen
     };
-    this.props.regUser(user);
-    this.setState({ reg: true });
+    if (
+      user.loyal.length === 14 &&
+      (user.gen === "male" || user.gen === "female")
+    ) {
+      this.props.regUser(user);
+      this.setState({ reg: true });
+    } else {
+      alert("gender or loyal ar wrong");
+    }
   };
 
   render() {
