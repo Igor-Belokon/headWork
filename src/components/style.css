@@ -64,3 +64,8 @@
   border: 1px rgba(0, 0, 0, 0.61) solid;
   border-radius: 10px;
 }
+.sameData {
+  background-color: red;
+  width: 50px;
+  height: 50px;
+}

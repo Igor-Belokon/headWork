@@ -8,7 +8,7 @@ export function regUser(user) {
 export function regForm() {
   return dispatch =>
     axios
-      .get("https://meowfacts.herokuapp.com/")
+      .get("https://meowfacts.herokuapp.com")
       .then(data => dispatch({ type: successAction(REG_FORM), data }))
       .catch(err => dispatch({ type: failureAction(REG_FORM), err }));
 }

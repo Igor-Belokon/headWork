@@ -1,5 +1,6 @@
 import React from "react";
 import "../style.css";
+import axios from "axios";
 
 import { connect } from "react-redux";
 
@@ -19,6 +20,10 @@ class Reg extends React.Component {
   };
   componentDidMount() {
     this.props.regForm();
+    axios
+      .get("https://meowfacts.herokuapp.com")
+      .then(data => this.props.sameDa);
+    console.log("Chek data", this.props.sameDa);
   }
   handleChange = event => {
     this.setState({
@@ -93,7 +98,7 @@ class Reg extends React.Component {
           </div>
           <button onClick={this.userReg}>Registration</button>
         </div>
-        {this.props.sameData}
+        <div className="sameData">{this.props.sameDa}</div>
       </div>
     );
   }
