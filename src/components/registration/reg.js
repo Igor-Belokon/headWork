@@ -16,7 +16,9 @@ class Reg extends React.Component {
     surname: "",
     gen: "",
     loyal: "",
-    reg: false
+    reg: false,
+    withLoyaltyProgram: false
+    
   };
   componentDidMount() {
     this.props.regForm();
@@ -37,15 +39,10 @@ class Reg extends React.Component {
       surname: this.state.surname,
       gen: this.state.gen
     };
-    if (
-      user.loyal.length === 16 &&
-      (user.gen === "male" || user.gen === "female")
-    ) {
+   
       this.props.regUser(user);
       this.setState({ reg: true });
-    } else {
-      alert("gender or loyal ar wrong");
-    }
+   
   };
 
   render() {
@@ -61,7 +58,7 @@ class Reg extends React.Component {
             <label>Username</label>
             <label>Surname</label>
             <label>gen</label>
-            <label>loyal</label>
+          
           </div>
           <div className="reg2">
             <input
@@ -79,22 +76,31 @@ class Reg extends React.Component {
               value={this.state.surname}
               onChange={this.handleChange}
             />
-
+              <div className="gen-box">
+              <p><input type="checkbox" name="gen" value="male" onChange={this.handleChange}/> male </p>
+              <p><input type="checkbox" name="gen" value="female" onChange={this.handleChange}/> female</p>
+              </div>
+            
+            <label>
+            Use coupon?
             <input
-              type="gen"
-              name="gen"
-              placeholder="gen"
-              value={this.state.gen}
+              type="checkbox"
+              value={this.state.withLoyaltyProgram}
+              name="withLoyaltyProgram"
               onChange={this.handleChange}
             />
-
+          </label>
+          {this.state.withLoyaltyProgram ? (
+            <label>
+            Coupon
             <input
-              type="loyal"
+              type="text"
+              value={this.state.userCoupon}
               name="loyal"
-              placeholder="loyal"
-              value={this.state.loyal}
               onChange={this.handleChange}
             />
+          </label>
+          ) : null}
           </div>
           <button onClick={this.userReg}>Registration</button>
         </div>

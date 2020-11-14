@@ -2,12 +2,15 @@ import React from "react";
 
 import Header from "../src/components/header/header";
 import MyProf from "../src/components/prof/prof";
-
 import Table from "../src/components/users/table";
-
 import Reg from "../src/components/registration/reg";
 
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 
 import { Provider } from "react-redux";
 
@@ -18,12 +21,17 @@ function App() {
     <div>
       <Provider store={store}>
         <Router>
-          <div>
-            <Header></Header>
-            <Route path="/reg" component={Reg} />
-            <Route path="/users" component={Table} />
-            <Route path="/prof" component={MyProf} />
-          </div>
+          
+            <Header/>
+            <Switch>
+            <Route path="/reg"  > <Reg/></Route>
+            <Route path="/users"  > <Table/></Route>
+            <Route path="/prof"  > <MyProf/></Route>
+            <Route path="/">
+            <Redirect to="/reg" />
+            </Route>
+            </Switch>
+          
         </Router>
       </Provider>
     </div>
