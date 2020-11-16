@@ -1,0 +1,28 @@
+.prof-block {
+}
+
+.user-avatar {
+  background: url("./photo_2020-06-25_17-42-50.jpg") 100% 100% no-repeat;
+  background-size: cover;
+  width: 150px;
+  height: 200px;
+  border: 1px rgba(0, 0, 0, 0.281) solid;
+  border-radius: 25px;
+  margin: 15px;
+}
+.main-block {
+  background-color: rgba(175, 175, 175, 0.445);
+  margin: 20px;
+  display: flex;
+  border: 1px black solid;
+  border-radius: 5px;
+  justify-content: space-around;
+  align-items: center;
+}
+.about-me {
+  background-color: rgba(175, 175, 175, 0.445);
+  padding: 20px;
+  margin: 20px;
+  border: 1px black solid;
+  border-radius: 5px;
+}

@@ -21,11 +21,9 @@
   padding: 10px;
   border-right: 1px rgba(146, 146, 146, 0.651) solid;
 }
-
 .found {
   margin: 10px;
 }
-
 .find2 {
   width: 150px;
   height: 30px;
@@ -34,38 +32,33 @@
   margin: auto;
   background-color: rgba(255, 255, 255, 0);
 }
-
 .filter-content {
   background-color: rgba(192, 192, 192, 0.74);
   border-radius: 20px;
   margin: 5px;
   padding: 4px;
 }
-
 .filter-search {
   padding: 5px;
   height: 45px;
   border-radius: 10px;
   background-color: rgba(192, 192, 192, 0.74);
 }
-
 .reg-form {
   margin: auto;
+
   border: 1px rgba(0, 0, 0, 0.61) solid;
   border-radius: 10px;
   padding: 10px;
 }
-
 .reg1 {
   width: 100%;
   height: 700px;
 }
-
 .reg2 {
   display: flex;
   flex-direction: column;
 }
-
 .table {
   width: 100%;
   border: 1px rgba(0, 0, 0, 0.61) solid;
@@ -75,21 +68,3 @@
 .gen-box {
   display: flex;
 }
-
-.header-block {
-  display: flex;
-  width: 100%;
-  height: 40px;
-  background-color: rgba(121, 135, 161, 0.692);
-  margin: auto;
-  border: 1px black solid;
-  border-radius: 5px;
-}
-
-.header-button {
-  border: 1px rgba(0, 0, 0, 0.788) solid;
-  border-radius: 5px;
-  margin: 5px;
-}
-
-/*# sourceMappingURL=style.css.map */

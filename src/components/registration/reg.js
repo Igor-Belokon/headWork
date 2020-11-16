@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 import { Redirect } from "react-router-dom";
 
-import { regUser, regForm } from "../../store/action/data";
+import { regUser } from "../../store/action/data";
 
 import { myData } from "../../store/selectors/selectors";
 
@@ -17,19 +17,12 @@ class Reg extends React.Component {
     gen: "",
     loyal: "",
     reg: false,
-    withLoyaltyProgram: false
-    
+    withLoyaltyProgram: false,
   };
-  componentDidMount() {
-    this.props.regForm();
-    axios
-      .get("https://meowfacts.herokuapp.com")
-      .then(data => this.props.sameDa);
-    console.log("Chek data", this.props.sameDa);
-  }
-  handleChange = event => {
+
+  handleChange = (event) => {
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   };
   userReg = () => {
@@ -37,12 +30,11 @@ class Reg extends React.Component {
       username: this.state.username,
       loyal: this.state.loyal,
       surname: this.state.surname,
-      gen: this.state.gen
+      gen: this.state.gen,
     };
-   
-      this.props.regUser(user);
-      this.setState({ reg: true });
-   
+
+    this.props.regUser(user);
+    this.setState({ reg: true });
   };
 
   render() {
@@ -54,13 +46,9 @@ class Reg extends React.Component {
       <div className="reg1">
         <div className="reg-form">
           <h1>Registration</h1>
+          <div className="reg2"></div>
           <div className="reg2">
             <label>Username</label>
-            <label>Surname</label>
-            <label>gen</label>
-          
-          </div>
-          <div className="reg2">
             <input
               type="username"
               name="username"
@@ -68,7 +56,7 @@ class Reg extends React.Component {
               value={this.state.username}
               onChange={this.handleChange}
             />
-
+            <label>Surname</label>
             <input
               type="surname"
               name="surname"
@@ -76,35 +64,52 @@ class Reg extends React.Component {
               value={this.state.surname}
               onChange={this.handleChange}
             />
-              <div className="gen-box">
-              <p><input type="checkbox" name="gen" value="male" onChange={this.handleChange}/> male </p>
-              <p><input type="checkbox" name="gen" value="female" onChange={this.handleChange}/> female</p>
-              </div>
-            
+
+            <div className="gen-box">
+              <label>gen</label>
+              <p>
+                <input
+                  type="checkbox"
+                  name="gen"
+                  value="male"
+                  onChange={this.handleChange}
+                />{" "}
+                male{" "}
+              </p>
+              <p>
+                <input
+                  type="checkbox"
+                  name="gen"
+                  value="female"
+                  onChange={this.handleChange}
+                />{" "}
+                female
+              </p>
+            </div>
+
             <label>
-            Use coupon?
-            <input
-              type="checkbox"
-              value={this.state.withLoyaltyProgram}
-              name="withLoyaltyProgram"
-              onChange={this.handleChange}
-            />
-          </label>
-          {this.state.withLoyaltyProgram ? (
-            <label>
-            Coupon
-            <input
-              type="text"
-              value={this.state.userCoupon}
-              name="loyal"
-              onChange={this.handleChange}
-            />
-          </label>
-          ) : null}
+              Use coupon?
+              <input
+                type="checkbox"
+                value={this.state.withLoyaltyProgram}
+                name="withLoyaltyProgram"
+                onChange={this.handleChange}
+              />
+            </label>
+            {this.state.withLoyaltyProgram ? (
+              <label>
+                Coupon
+                <input
+                  type="text"
+                  value={this.state.userCoupon}
+                  name="loyal"
+                  onChange={this.handleChange}
+                />
+              </label>
+            ) : null}
           </div>
           <button onClick={this.userReg}>Registration</button>
         </div>
-        <div className="sameData">{this.props.sameDa}</div>
       </div>
     );
   }
@@ -112,4 +117,4 @@ class Reg extends React.Component {
 function mapStateToProps(state) {
   return { sameData: myData(state) };
 }
-export default connect(mapStateToProps, { regForm, regUser })(Reg);
+export default connect(mapStateToProps, { regUser })(Reg);
