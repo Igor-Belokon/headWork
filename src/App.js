@@ -9,8 +9,10 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from "react-router-dom";
+
+import "./components/index.scss";
 
 import { Provider } from "react-redux";
 
@@ -21,17 +23,24 @@ function App() {
     <div>
       <Provider store={store}>
         <Router>
-          
-            <Header/>
-            <Switch>
-            <Route path="/reg"  > <Reg/></Route>
-            <Route path="/users"  > <Table/></Route>
-            <Route path="/prof"  > <MyProf/></Route>
-            <Route path="/">
-            <Redirect to="/reg" />
+          <Header />
+          <Switch>
+            <Route path="/reg">
+              {" "}
+              <Reg />
             </Route>
-            </Switch>
-          
+            <Route path="/users">
+              {" "}
+              <Table />
+            </Route>
+            <Route path="/prof">
+              {" "}
+              <MyProf />
+            </Route>
+            <Route path="/">
+              <Redirect to="/reg" />
+            </Route>
+          </Switch>
         </Router>
       </Provider>
     </div>
